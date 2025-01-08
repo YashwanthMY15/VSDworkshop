@@ -37,7 +37,8 @@ This repository demonstrates the processes involved in compiling C programs and 
  
  # Compilation and execution complete.
  
-![2](https://github.com/user-attachments/assets/5712cf49-d372-467e-9ace-425a3741b7b4)
+![2](https://github.com/user-attachments/assets/a100f3f4-9dac-4337-ab3c-17a580bd45fa)
+)
 ## RISC-V Based Lab
 
 ### Steps to Compile Using RISC-V GCC Compiler:
@@ -64,7 +65,8 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
 /main
 
 6. Use /main in the terminal to locate the main function in the assembly output.
-![4](https://github.com/user-attachments/assets/abbb078b-bee3-452d-9e04-0f0d61ba42bf)
+![4](https://github.com/user-attachments/assets/49f867a3-8291-4265-b5dd-09a2378ed5fa)
+
 
 7.Compile the C program for RISC-V architecture using ofast option:
 sh
@@ -83,7 +85,8 @@ riscv64-unknown-elf-objdump -d sum1ton.o | less
   /main
 
 10. Use /main in the terminal to locate the main function in the assembly output.
-![4](https://github.com/user-attachments/assets/abbb078b-bee3-452d-9e04-0f0d61ba42bf)
+![4](https://github.com/user-attachments/assets/755232b7-454e-439c-a744-5c2783796fcf)
+
 
 ### Explanation of Key Commands and Options: 
 1. -mabi=lp64: Specifies the Application Binary Interface (ABI) for 64-bit integers, pointers, and long data types, suitable for 64-bit RISC-V architecture.
