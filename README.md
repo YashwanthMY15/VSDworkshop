@@ -784,10 +784,9 @@ Write-Back Stage:
 ---
 
 <details>
-<summary> <b>Task 5:</b> This task involves designing an 8-bit Arithmetic Logic Unit (ALU) for the VSDSquadron Mini RISC-V development board. You will define the ALU architecture, determine input/output requirements, and plan the pin mapping. A functional block diagram should be created to illustrate the internal structure of the ALU.</summary>
+<summary> <b>Task 5 and task 6:</b> This task involves designing an 8-bit Arithmetic Logic Unit (ALU) for the VSDSquadron Mini RISC-V development board. You will define the ALU architecture, determine input/output requirements, and plan the pin mapping. A functional block diagram should be created to illustrate the internal structure of the ALU.</summary>
 <br>
 
-   
 # 🚀 Full Adder Implementation using VSDSquadron Mini RISC-V Board
 
 ## 📖 Project Overview
@@ -929,7 +928,36 @@ int main() {
     return 0;
 }
 
+
 </details>
 
 ---
+
+
+
+<details>
+<summary> <b>Task 6:</b> This task involves uploading a video demonstrating the functionality of your implemented project (8-bit ALU in Task 5). The video should showcase the working of the ALU with input/output operations, and ideally display the interaction with the buttons, LEDs, and buzzer (if applicable). The video should clearly highlight the successful operation of the ALU performing arithmetic and logic functions.</summary>
+<br>
+
+## 📹 Project Demonstration Video
+
+In this section, you will find the video demonstrating the working of the **8-bit ALU** that was implemented on the VSDSquadron Mini RISC-V board. The video showcases how the ALU handles the following operations:
+
+- **Arithmetic Operations**: Addition and subtraction.
+- **Logic Operations**: AND, OR, XOR, and Left Shift.
+- **Overflow Handling**: Buzzer alert when overflow occurs.
+
+### Video Link:
+Video uploaded in task 5 folder
+
+### Description:
+In the video, the following points are demonstrated:
+1. **Button Inputs**: Interacting with the buttons to select inputs A, B, and Carry-In (Cin).
+2. **Operation Selection**: Choosing between Arithmetic or Logic operations using the toggle switch.
+3. **LED Output**: The LEDs displaying the results of the ALU operation.
+4. **Buzzer Alert**: The buzzer sounding when an overflow occurs in an arithmetic operation.
+
+The video clearly shows the full functionality of the ALU, confirming that it works as expected.
+
+</details>
 
