@@ -784,7 +784,7 @@ Write-Back Stage:
 ---
 
 <details>
-<summary> <b>Task 5 and task 6:</b> This task involves designing an 8-bit Arithmetic Logic Unit (ALU) for the VSDSquadron Mini RISC-V development board. You will define the ALU architecture, determine input/output requirements, and plan the pin mapping. A functional block diagram should be created to illustrate the internal structure of the ALU.</summary>
+<summary> <b>Task 5:</b> This task involves designing an 8-bit Arithmetic Logic Unit (ALU) for the VSDSquadron Mini RISC-V development board. You will define the ALU architecture, determine input/output requirements, and plan the pin mapping. A functional block diagram should be created to illustrate the internal structure of the ALU.</summary>
 <br>
 
 # 🚀 Full Adder Implementation using VSDSquadron Mini RISC-V Board
@@ -928,11 +928,10 @@ int main() {
     return 0;
 }
 
-```c
+```
 </details>
 
 ---
-
 
 
 <details>
@@ -948,7 +947,7 @@ In this section, you will find the video demonstrating the working of the **8-bi
 - **Overflow Handling**: Buzzer alert when overflow occurs.
 
 ### Video Link:
-Video uploaded in task 5 folder
+Video uploaded in task 6 folder
 
 ### Description:
 In the video, the following points are demonstrated:
