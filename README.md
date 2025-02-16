@@ -782,3 +782,154 @@ Write-Back Stage:
 </details>
 
 ---
+
+<details>
+<summary> <b>Task 5:</b> This task involves designing an 8-bit Arithmetic Logic Unit (ALU) for the VSDSquadron Mini RISC-V development board. You will define the ALU architecture, determine input/output requirements, and plan the pin mapping. A functional block diagram should be created to illustrate the internal structure of the ALU.</summary>
+<br>
+
+   
+# 🚀 Full Adder Implementation using VSDSquadron Mini RISC-V Board
+
+## 📖 Project Overview
+This project implements a **Full Adder** circuit on the VSDSquadron Mini RISC-V Board. The full adder is designed to perform bitwise addition of two binary digits (bits) along with a carry-in input, producing a sum and a carry-out output. It will use input controls for bit selection and will display the result on LEDs.
+
+## 🎯 Full Adder Operations:
+- **Addition**: Takes two binary inputs (A, B) and adds them with a carry-in (Cin).
+- **Output**: Produces a sum (S) and carry-out (Cout).
+- **Overflow Handling**: Buzzer alert for any overflow.
+
+## 🔧 Required Components
+| Component                | Quantity | Description                                      |
+|--------------------------|----------|--------------------------------------------------|
+| VSDSquadron Mini Board    | 1        | RISC-V SoC-based development board              |
+| Push Buttons              | 4        | Inputs for A, B, Carry-In, and operation selection |
+| Toggle Switch             | 1        | Selects between basic/full adder modes           |
+| LEDs (8-bit Output)       | 8        | Displays the sum and carry-out result            |
+| Buzzer (Optional)         | 1        | Alerts overflow (Carry-out in case of overflow)  |
+| Resistors (1kΩ)           | 8        | Limits current for LEDs                         |
+| Breadboard & Jumper Wires| -        | For connections                                 |
+
+## 📊 Pin Connections
+
+| Board Pin    | Component             | Purpose                          |
+|--------------|-----------------------|----------------------------------|
+| GPIO0 - GPIO3 | 4 LEDs                | Display sum and carry-out result |
+| GPIO4, GPIO5  | Push Buttons          | Input A and B                   |
+| GPIO6         | Push Button           | Carry-In Input (Cin)            |
+| GPIO7         | Push Button           | Operation selection (Full Adder)|
+| GPIO8         | Toggle Switch         | Mode selector (basic/full adder)|
+| GPIO9         | Buzzer (Optional)     | Overflow indicator (Carry-out)  |
+
+## 🎯 Full Adder Logic
+The Full Adder operates based on the following logic:
+
+- **Sum (S)** = A ⊕ B ⊕ Cin
+- **Carry-Out (Cout)** = (A AND B) OR (B AND Cin) OR (A AND Cin)
+
+
+## 📈 Detailed Block Description
+
+- **Inputs**: 
+    - A (bit 1)
+    - B (bit 2)
+    - Cin (Carry-In)
+  
+- **Logic Blocks**:
+    - **XOR Gates**: Calculate the sum of A, B, and Cin.
+    - **AND Gates**: Calculate intermediate carry values.
+    - **OR Gate**: Combine the results of AND gates to determine the carry-out (Cout).
+
+- **Outputs**:
+    - **Sum (S)**: 1-bit sum of inputs A, B, and Cin.
+    - **Carry-Out (Cout)**: 1-bit carry-out value indicating if an overflow occurred.
+
+## 🛠️ Mode Selection
+- The **Toggle Switch** allows the user to switch between a basic adder and the full adder mode. In the basic adder mode, the Cin is set to 0.
+
+## 📑 User Interface
+- **Push Buttons**: 
+    - Button 1: Set input A.
+    - Button 2: Set input B.
+    - Button 3: Set Carry-In input (Cin).
+    - Button 4: Select between Full Adder and Basic Adder mode.
+  
+- **LEDs**: 
+    - LED0 to LED3: Show the sum result (S).
+    - LED4: Show Carry-out (Cout).
+
+- **Buzzer**: 
+    - Alerts when an overflow (Carry-out) is detected.
+
+## 💻 Code Implementation
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+#define GPIO0   0x00  // GPIO pin for sum output (S)
+#define GPIO1   0x01  // GPIO pin for carry-out output (Cout)
+#define GPIO2   0x02  // GPIO pin for input A
+#define GPIO3   0x03  // GPIO pin for input B
+#define GPIO4   0x04  // GPIO pin for Carry-In input (Cin)
+#define GPIO5   0x05  // GPIO pin for button inputs (operation selection)
+#define GPIO6   0x06  // GPIO pin for toggle switch (mode selection)
+#define GPIO7   0x07  // GPIO pin for buzzer (overflow alert)
+
+// Function to simulate the Full Adder logic
+void full_adder(bool A, bool B, bool Cin, bool *Sum, bool *Cout) {
+    // Sum = A XOR B XOR Cin
+    *Sum = (A ^ B) ^ Cin;
+
+    // Carry-out = (A AND B) OR (B AND Cin) OR (A AND Cin)
+    *Cout = (A & B) | (B & Cin) | (A & Cin);
+}
+
+// Function to read GPIO inputs (simulated for this example)
+bool read_gpio(int pin) {
+    // Example: Simulate reading button states (to be replaced with actual board code)
+    return false; // Always return false for simulation
+}
+
+// Function to set GPIO outputs (simulated for this example)
+void set_gpio(int pin, bool value) {
+    // Example: Simulate setting GPIO output (to be replaced with actual board code)
+    if (value) {
+        printf("GPIO %d: HIGH\n", pin);
+    } else {
+        printf("GPIO %d: LOW\n", pin);
+    }
+}
+
+// Main function to handle input, compute the full adder result, and display output
+int main() {
+    bool A = false;    // Input A
+    bool B = false;    // Input B
+    bool Cin = false;  // Carry-in input
+    bool Sum = false;  // Sum output
+    bool Cout = false; // Carry-out output
+
+    // Simulate reading inputs from buttons and toggle switches
+    A = read_gpio(GPIO2);  // Read input A
+    B = read_gpio(GPIO3);  // Read input B
+    Cin = read_gpio(GPIO4); // Read Carry-In
+    bool mode = read_gpio(GPIO6);  // Read toggle switch mode
+
+    // Calculate the Full Adder result
+    full_adder(A, B, Cin, &Sum, &Cout);
+
+    // Display the sum and carry-out on the LEDs (simulated)
+    set_gpio(GPIO0, Sum);   // Show sum result on LED
+    set_gpio(GPIO1, Cout);  // Show carry-out result on LED
+
+    // Optional: Activate buzzer if overflow (carry-out)
+    if (Cout) {
+        set_gpio(GPIO7, true); // Buzzer alert for overflow
+    }
+
+    return 0;
+}
+
+</details>
+
+---
+
